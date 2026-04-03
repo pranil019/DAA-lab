@@ -21,10 +21,11 @@ for _ in range(num_rooms):
         if not visited[j] and times[j] < min_time:
             min_time = times[j]
             u = j
-            
-    if u == -1: break
+
+    if u == -1:
+        break
     visited[u] = True
-    
+
     # Check neighbors and update their paths
     for v in range(num_rooms):
         travel_time = dungeon[u][v]
@@ -46,5 +47,5 @@ for i in range(num_rooms):
         while curr != -1:
             path.insert(0, str(curr)) # Add to the front of the list
             curr = parent[curr]
-            
+
         print(f"Room {i} | Time: {times[i]} | Path: {' -> '.join(path)}")
