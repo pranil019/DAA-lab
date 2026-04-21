@@ -38,4 +38,4 @@ print("Original Danger Levels:")
 print_matrix(graph)
 
 print("\nSafest Paths Between All Caves:")
-print_matrix(shortest_paths)
+print_matrix(shortest_paths) 

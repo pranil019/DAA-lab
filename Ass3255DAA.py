@@ -1,5 +1,5 @@
 num_rooms = int(input("Enter number of rooms: "))
-
+# to form matrix 
 dungeon = [[0] * num_rooms for _ in range(num_rooms)]
 for i in range(num_rooms):
     for j in range(i + 1, num_rooms):
@@ -7,7 +7,7 @@ for i in range(num_rooms):
         dungeon[i][j] = time
         dungeon[j][i] = time
 
-# 2. Dijkstra's Setup
+# Dijkstra's Setup
 visited = [False] * num_rooms
 times = [9999] * num_rooms  # Stores the best time
 parent = [-1] * num_rooms   # Stores where we came from to show the PATH
@@ -33,15 +33,15 @@ for _ in range(num_rooms):
             new_time = times[u] + travel_time
             if new_time < times[v]:
                 times[v] = new_time
-                parent[v] = u # Remember that we reached 'v' through 'u'
+                parent[v] = u # to remember that we reached 'v' through 'u'
 
-# 3. Print Results and Paths
+# Print Results and Paths
 print("\n--- Final Escape Results ---")
 for i in range(num_rooms):
     if times[i] == 9999:
         print(f"Room {i}: Unreachable (-1)")
     else:
-        # Build the path by tracing back through 'parent'
+        # to build the path by tracing back through 'parent'
         path = []
         curr = i
         while curr != -1:
